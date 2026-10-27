@@ -14,3 +14,13 @@
 - 53 radio questions are stored as `select` properties. This is harmless: they're all enumerations, and the form sets its own radio display. No change.
 - **Issue:** `fame_chapter_name` is a text property, not a dropdown, so it has no options. Waiting on Jess.
 - **Issue:** the 3 contact properties returned 403 because the private app lacks `crm.objects.contacts.read`. firstname, lastname and email are standard properties, so this is not blocking.
+- Jess chose a **form-only dropdown** for `fame_chapter_name`, built from the 57 chapter names in HubSpot. The property stays text.
+- Step 0 comparison: only 1 active form uses `fame_chapter_name` ("Alabama State Training Registration Form - 6/2-6/5"), not 3. It uses a required single-line text field. None of the 6 archived forms use it.
+
+## Step 2: feasibility test (2026-10-27): done
+- Read the current Forms v3 reference (`/docs/api-reference/legacy/marketing/forms/create-form.md`). HubSpot now labels v3 "legacy".
+- `scripts/feasibility_test.py` created "TEST - Readiness Assessment" (id 88ee65cb-…) with email (0-1), readiness_assessment_date (FAME Chapter) and a 2-option dropdown on fame_chapter_name. POST returned 201, and the GET showed all 3 fields saved with the right object and type.
+- The script crashed on an output path before its delete. I deleted the form by hand (DELETE 204, then GET 404) and fixed the path.
+- **No multi-step support** in the v3 schema: field groups only, with no pages or steps. Plan: a single page with a rich-text heading per step. Jess splits the pages in the editor.
+- **No draft state** in the v3 schema or response: there's no published or draft field. Waiting on Jess before step 3.
+- Not tested: whether a submission updates the existing chapter record or creates a new one. Testing that needs a real submission, which writes CRM data.
