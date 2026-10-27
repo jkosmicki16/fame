@@ -24,3 +24,21 @@
 - **No multi-step support** in the v3 schema: field groups only, with no pages or steps. Plan: a single page with a rich-text heading per step. Jess splits the pages in the editor.
 - **No draft state** in the v3 schema or response: there's no published or draft field. Waiting on Jess before step 3.
 - Not tested: whether a submission updates the existing chapter record or creates a new one. Testing that needs a real submission, which writes CRM data.
+
+## Step 3: build (2026-10-27): done
+- `scripts/build_form.py` created **Chapter Readiness Assessment**, id `d72951eb-6e96-4bd0-b2b7-437f2b7caa96` (POST 201).
+- Layout: an intro rich text block, then a rich text heading for each step (title and intro), then one field per group. The rating scale help text is in the Employer Engagement heading. The thank-you message is inline.
+- Options come from `scripts/out/properties.json`. The chapter dropdown has 57 options, sorted, taken from the current FAME Chapter records.
+- Not shared or embedded anywhere. Jess will check its draft or live status in the editor.
+
+## Step 4: verify (2026-10-27): done
+- `scripts/verify_form.py` read the form back: 102 fields, and every step count matches. Every name, label, required flag, field type, help text and option list matches the spec.
+- HubSpot stores labels as HTML (`&` saved as `&amp;`), the same as other forms in the portal. It still shows as "&".
+- Editor: https://app.hubspot.com/forms/21436812/editor/d72951eb-6e96-4bd0-b2b7-437f2b7caa96/edit/form
+
+## For Jess to do in the editor
+- Split the 10 headed sections into pages (the API can't make multi-step forms).
+- Check the form's draft or live status.
+- Make one test submission to confirm it updates the chosen chapter's existing record rather than creating a new one.
+- If a new chapter is added in HubSpot, add it to the Chapter Name dropdown on the form.
+- Possibly add the `crm.objects.contacts.read` scope to the private app. Not needed for this build.
