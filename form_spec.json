@@ -1,0 +1,819 @@
+{
+  "formName": "Chapter Readiness Assessment",
+  "portalId": 21436812,
+  "chapterObject": {
+    "fullyQualifiedName": "p21436812_fame_chapters",
+    "note": "Look up the objectTypeId (2-XXXXXXX) with GET /crm/v3/schemas."
+  },
+  "chapterMatching": {
+    "method": "TBD - ask Jess before building",
+    "options": [
+      "dropdown of fame_chapter_name values",
+      "hidden field set per chapter link",
+      "copy the approach used by the 3 existing forms that use fame_chapter_name"
+    ]
+  },
+  "introduction": "The Chapter Readiness Assessment helps chapter leadership evaluate the conditions that will support successful employer expansion. Complete the assessment before beginning a concentrated employer recruitment effort.\n\nThe assessment examines six areas that directly influence a chapter's ability to grow: Employer Engagement, Leadership & Governance, College Capacity, Student Pipeline, Employer Recruitment Infrastructure, and Resources & Ownership.\n\nRecommended approach: Bring the group together and submit one assessment representing the chapter's collective response. Recommended participants: chapter president and/or officers, college leadership or FAME program representative, FAME instructor, FAME coordinator/Student Success Coach, Hub organization representative (if applicable), and representatives from active sponsoring employers. Estimated time: 45–60 minutes.",
+  "ratingScaleHelpText": "Fully in Place: The chapter has an established practice, resource, or capacity in this area. It is functioning consistently and can support expansion.\nPartially in Place: Some elements exist, but improvement, clarification, or additional capacity is needed to support expansion.\nNeeds Development: A meaningful gap exists that should be addressed as part of the chapter's expansion strategy.\nUnsure / Needs Discussion: The group does not currently have enough information or agreement to assess this item.",
+  "thankYouMessage": "Thank you. Your completed assessment should be used to develop your Chapter Depth Implementation Plan.\n\nBefore beginning the next phase, chapter leadership should have:\n- Confirmed the employer expansion goal\n- Identified priority readiness actions\n- Assigned an expansion lead\n- Assigned owners to readiness actions\n- Confirmed college capacity\n- Confirmed the student pipeline can support anticipated growth\n- Established a target completion date",
+  "steps": [
+    {
+      "title": "Chapter Information",
+      "sourceQuestions": "1–9",
+      "intro": null,
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "__CHAPTER_MATCH__",
+          "label": "Chapter Name",
+          "fieldType": "TBD",
+          "required": true,
+          "helpText": "See chapterMatching in this spec."
+        },
+        {
+          "object": "contact",
+          "property": "firstname",
+          "label": "First name",
+          "fieldType": "single_line_text",
+          "required": true
+        },
+        {
+          "object": "contact",
+          "property": "lastname",
+          "label": "Last name",
+          "fieldType": "single_line_text",
+          "required": true
+        },
+        {
+          "object": "contact",
+          "property": "email",
+          "label": "Email",
+          "fieldType": "email",
+          "required": true
+        },
+        {
+          "object": "fame_chapter",
+          "property": "readiness_assessment_date",
+          "label": "Assessment date",
+          "fieldType": "datepicker",
+          "required": true
+        },
+        {
+          "object": "fame_chapter",
+          "property": "assessment_participants",
+          "label": "Who participated in completing the assessment?",
+          "fieldType": "multiple_checkboxes",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "active_sponsoring_employers",
+          "label": "Current number of active sponsoring employers",
+          "fieldType": "number",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "starting_fall",
+          "label": "Current number of students: first-year cohort",
+          "fieldType": "number",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "returning_fall",
+          "label": "Current number of students: second-year cohort",
+          "fieldType": "number",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "other_cohort_students",
+          "label": "Current number of students: other/additional cohorts, if applicable",
+          "fieldType": "number",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "expansion_interest_drivers",
+          "label": "What is driving the chapter's current interest in employer expansion?",
+          "fieldType": "multi_line_text",
+          "required": false,
+          "helpText": "Briefly describe the opportunity, challenge, or need that has prompted the chapter to pursue additional employer partners."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "preliminary_new_employer_goal",
+          "label": "What is your preliminary employer growth goal?",
+          "fieldType": "number",
+          "required": false,
+          "helpText": "Number of additional sponsoring employers the chapter would like to add."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "preliminary_student_growth_goal",
+          "label": "What is your preliminary student growth goal?",
+          "fieldType": "number",
+          "required": false,
+          "helpText": "Number of additional student sponsorships/seats the chapter would like to support."
+        }
+      ]
+    },
+    {
+      "title": "Employer Engagement",
+      "sourceQuestions": "10–18",
+      "showRatingScale": true,
+      "intro": "Evaluate the current level of participation and shared ownership among existing sponsoring employers. A growing chapter will place additional demands on employer leadership, decision-making, recruitment, and chapter activities.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "ee_employers_attend_meetings",
+          "label": "Existing sponsoring employers regularly participate in chapter meetings.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_employers_participate_decisions",
+          "label": "Employers actively participate in chapter decisions and provide input on chapter direction.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_employers_student_recruitment",
+          "label": "Employers participate in student recruitment and selection activities.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_employers_contribute_beyond_sponsorship",
+          "label": "Employers contribute to chapter activities beyond sponsoring their individual students.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_responsibilities_distributed",
+          "label": "Chapter responsibilities are distributed across multiple employer partners.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_consistent_communication",
+          "label": "Communication with employers is consistent and employers know what is expected of them.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_employers_see_value",
+          "label": "Current employers generally view their participation in FAME as valuable to their organization.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "employer_engagement_readiness",
+          "label": "Overall, how would you rate Employer Engagement?",
+          "fieldType": "radio",
+          "required": true,
+          "helpText": "The group's overall judgment for this section, after discussing the statements above."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_strongest_engagement_notes",
+          "label": "Which employers currently demonstrate the strongest engagement, and what does their engagement look like?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ee_improvement_notes",
+          "label": "Where could employer engagement improve before or during expansion?",
+          "fieldType": "multi_line_text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "Leadership & Governance",
+      "sourceQuestions": "19–28",
+      "intro": "Consider whether the chapter has the leadership structure and operating practices necessary to support additional employers and students.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "lg_officer_roles_defined",
+          "label": "Chapter officer roles and responsibilities are clearly defined.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_leadership_distributed",
+          "label": "Chapter leadership responsibilities are distributed across multiple people and organizations.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_active_committees",
+          "label": "Active committees or working groups support key chapter functions.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_bylaws_current",
+          "label": "Chapter bylaws are current and reflect how the chapter currently operates.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_decision_making_process",
+          "label": "The chapter has a clear and consistently followed decision-making process.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_succession_planning",
+          "label": "Leadership succession has been discussed and potential future leaders are being developed.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_information_accessible",
+          "label": "Important chapter information, documents, contacts, and processes are accessible beyond one individual.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_leadership_capacity",
+          "label": "The chapter has sufficient leadership capacity to manage employer expansion alongside normal chapter operations.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "leadership_governance_readiness",
+          "label": "Overall, how would you rate Leadership & Governance?",
+          "fieldType": "radio",
+          "required": true,
+          "helpText": "The group's overall judgment for this section, after discussing the statements above."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_knowledge_at_risk_notes",
+          "label": "If one or two key chapter leaders stepped away tomorrow, what activities or knowledge would be most at risk?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "lg_improvement_notes",
+          "label": "What leadership or governance improvements would make expansion easier to manage?",
+          "fieldType": "multi_line_text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "College Capacity",
+      "sourceQuestions": "29–39",
+      "intro": "Employer expansion should be considered alongside the college's ability to support additional students while maintaining the quality of the FAME experience.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "annual_student_capacity",
+          "label": "What is the chapter's current annual student capacity?",
+          "fieldType": "number",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "additional_student_capacity",
+          "label": "Approximately how many additional students could the college accommodate with its current resources?",
+          "fieldType": "number",
+          "required": false,
+          "helpText": "Leave blank if unsure."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_classroom_capacity",
+          "label": "Classroom capacity can support the chapter's anticipated growth.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_lab_space_equipment",
+          "label": "FTC/lab space and equipment can support anticipated growth.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_instructor_capacity",
+          "label": "Instructor capacity is sufficient to support anticipated growth.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_maintain_schedule",
+          "label": "The college can maintain the required FAME schedule as enrollment increases.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_student_support_scale",
+          "label": "Student support and coordination capacity can scale with enrollment.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_leadership_support",
+          "label": "College leadership understands and supports the chapter's employer expansion goals.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_resource_threshold_identified",
+          "label": "The college has identified the point at which additional students would require added instructors, equipment, space, scheduling changes, or other resources.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "college_capacity_readiness",
+          "label": "Overall, how would you rate College Capacity?",
+          "fieldType": "radio",
+          "required": true,
+          "helpText": "The group's overall judgment for this section, after discussing the statements above."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_greatest_constraint_notes",
+          "label": "What is currently the greatest constraint on increasing student capacity?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "cc_investments_needed_notes",
+          "label": "What investments or operational changes may be required if the chapter grows?",
+          "fieldType": "multi_line_text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "Student Recruitment Pipeline",
+      "sourceQuestions": "40–49",
+      "intro": "Additional employer sponsorship capacity must be supported by a sufficient pipeline of qualified students.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "sp_recruitment_channels",
+          "label": "Which student recruitment channels does the chapter currently use?",
+          "fieldType": "multiple_checkboxes",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_enough_qualified_applicants",
+          "label": "The chapter consistently generates enough qualified applicants to fill available opportunities.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_recruitment_calendar",
+          "label": "Student recruitment activities follow an established annual calendar.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_referral_partners",
+          "label": "The chapter has active relationships with high schools, career centers, counselors, or other student referral partners.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_employers_participate",
+          "label": "Employers actively participate in student recruitment.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_materials_accurate",
+          "label": "Current student-facing recruitment materials accurately represent the FAME experience.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_could_generate_more",
+          "label": "The chapter could generate additional qualified applicants if employer sponsorship capacity increased.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_knows_strongest_activities",
+          "label": "The chapter understands which student recruitment activities produce the strongest candidates.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "student_pipeline_readiness",
+          "label": "Overall, how would you rate the Student Pipeline?",
+          "fieldType": "radio",
+          "required": true,
+          "helpText": "The group's overall judgment for this section, after discussing the statements above."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "student_pipeline_sufficient",
+          "label": "If the chapter added new sponsoring employers today, would the current student pipeline be sufficient to fill the additional opportunities?",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "sp_changes_needed_notes",
+          "label": "What would need to change to support a larger student pipeline?",
+          "fieldType": "multi_line_text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "Employer Recruitment Infrastructure",
+      "sourceQuestions": "50–59",
+      "intro": "Evaluate whether the chapter currently has the tools, information, and processes needed to conduct an organized employer recruitment campaign.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "eri_resources_in_place",
+          "label": "Which resources currently exist?",
+          "fieldType": "multiple_checkboxes",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_prospect_pool_identified",
+          "label": "The chapter has identified a meaningful pool of prospective employers in the region.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_prospects_prioritized",
+          "label": "Prospective employers can be prioritized based on fit and workforce need.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_value_proposition",
+          "label": "Chapter representatives can clearly communicate the employer value proposition.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_outreach_tracking",
+          "label": "A process exists for tracking employer outreach and follow-up.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_consideration_process",
+          "label": "A consistent process exists for moving an interested company from initial conversation through chapter consideration.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_employer_evaluation_process",
+          "label": "The chapter has a defined process for evaluating employer readiness, including safety and mentorship capacity.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_warm_introductions",
+          "label": "Current chapter leaders have relationships that could create warm introductions to prospective employers.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "employer_recruitment_infrastructure_readiness",
+          "label": "Overall, how would you rate Employer Recruitment Infrastructure?",
+          "fieldType": "radio",
+          "required": true,
+          "helpText": "The group's overall judgment for this section, after discussing the statements above."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "prospective_employers_identified",
+          "label": "Approximately how many prospective employers could you identify today?",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "eri_greatest_barrier_notes",
+          "label": "What is the greatest current barrier to employer recruitment?",
+          "fieldType": "multi_line_text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "Resources & Ownership",
+      "sourceQuestions": "60–68",
+      "intro": "Recruitment requires someone to consistently own the work; otherwise, it gets absorbed into everyone's existing responsibilities and loses momentum.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "expansion_lead_name",
+          "label": "Who will serve as the primary owner of the chapter's employer expansion effort? Name",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "expansion_lead_organization",
+          "label": "Expansion owner: organization",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "expansion_lead_role",
+          "label": "Expansion owner: role",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "expansion_lead_agreed",
+          "label": "Has this individual agreed to serve in this role?",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ro_coordinator_assigned",
+          "label": "A specific individual has responsibility for coordinating employer expansion.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ro_leadership_time",
+          "label": "Chapter leadership has sufficient time available to conduct consistent outreach and follow-up.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ro_responsibilities_assignable",
+          "label": "Responsibilities for prospecting, outreach, employer meetings, marketing, college coordination, onboarding, and tracking can be clearly assigned.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ro_marketing_support",
+          "label": "The chapter has access to adequate marketing and communications support.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ro_resources_available",
+          "label": "Resources are available to support the chapter's expansion strategy.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ro_progress_review_cadence",
+          "label": "Chapter leadership has established a regular cadence for reviewing recruitment progress.",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "resources_ownership_readiness",
+          "label": "Overall, how would you rate Resources & Ownership?",
+          "fieldType": "radio",
+          "required": true,
+          "helpText": "The group's overall judgment for this section, after discussing the statements above."
+        },
+        {
+          "object": "fame_chapter",
+          "property": "ro_additional_resources_needed",
+          "label": "Which additional resources would most improve your ability to expand? (Select up to three)",
+          "fieldType": "multiple_checkboxes",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "Overall Readiness",
+      "sourceQuestions": "69",
+      "intro": "Based on your discussion, make a group judgment about the chapter's overall readiness.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "overall_readiness",
+          "label": "Based on your discussion, how would you characterize the chapter's overall readiness?",
+          "fieldType": "radio",
+          "required": true,
+          "helpText": "Ready to Begin: The chapter has the capacity and infrastructure needed to begin employer expansion. Identified improvements can be addressed during implementation.\nReady with Priority Actions: The chapter can begin selected expansion activities while addressing several identified gaps.\nBuild Capacity First: One or more significant conditions should be strengthened before launching a concentrated employer recruitment campaign.\nAdditional Discussion Needed: The chapter needs additional information or stakeholder alignment before determining readiness."
+        }
+      ]
+    },
+    {
+      "title": "Priority Action Plan",
+      "sourceQuestions": "70",
+      "intro": "What are the three most important issues identified through this assessment? For each, describe the action, owner, target date, and support needed.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "priority_1_issue",
+          "label": "Priority 1: issue",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_1_action",
+          "label": "Priority 1: what action will be taken?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_1_owner",
+          "label": "Priority 1: who owns this action?",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_1_target_date",
+          "label": "Priority 1: target completion date",
+          "fieldType": "datepicker",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_1_support_needed",
+          "label": "Priority 1: what support or resources are needed?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_2_issue",
+          "label": "Priority 2: issue",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_2_action",
+          "label": "Priority 2: what action will be taken?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_2_owner",
+          "label": "Priority 2: who owns this action?",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_2_target_date",
+          "label": "Priority 2: target completion date",
+          "fieldType": "datepicker",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_2_support_needed",
+          "label": "Priority 2: what support or resources are needed?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_3_issue",
+          "label": "Priority 3: issue",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_3_action",
+          "label": "Priority 3: what action will be taken?",
+          "fieldType": "multi_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_3_owner",
+          "label": "Priority 3: who owns this action?",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_3_target_date",
+          "label": "Priority 3: target completion date",
+          "fieldType": "datepicker",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "priority_3_support_needed",
+          "label": "Priority 3: what support or resources are needed?",
+          "fieldType": "multi_line_text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "Confirm the Expansion Goal",
+      "sourceQuestions": "71–74",
+      "intro": "Now that the chapter has assessed its capacity, revisit the preliminary goal entered at the beginning.",
+      "fields": [
+        {
+          "object": "fame_chapter",
+          "property": "target_new_sponsoring_employers",
+          "label": "Based on this assessment, how many new sponsoring employers will the chapter add?",
+          "fieldType": "number",
+          "required": true
+        },
+        {
+          "object": "fame_chapter",
+          "property": "expansion_target_date",
+          "label": "By what date?",
+          "fieldType": "datepicker",
+          "required": true
+        },
+        {
+          "object": "fame_chapter",
+          "property": "target_additional_student_sponsorships",
+          "label": "What additional student sponsorship capacity would this create?",
+          "fieldType": "number",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "goal_supportable",
+          "label": "Can the college and student pipeline realistically support this goal?",
+          "fieldType": "radio",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "implementation_lead_name",
+          "label": "Who is accountable for overall implementation? Name",
+          "fieldType": "single_line_text",
+          "required": false
+        },
+        {
+          "object": "fame_chapter",
+          "property": "implementation_lead_organization",
+          "label": "Implementation lead: organization",
+          "fieldType": "single_line_text",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "expectedFieldCount": 102
+}
