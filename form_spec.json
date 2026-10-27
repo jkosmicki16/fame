@@ -6,12 +6,19 @@
     "note": "Look up the objectTypeId (2-XXXXXXX) with GET /crm/v3/schemas."
   },
   "chapterMatching": {
-    "method": "TBD - ask Jess before building",
+    "method": "dropdown",
+    "decidedBy": "Jess, 2026-10-27",
+    "detail": "Required dropdown on the FAME Chapter property fame_chapter_name, first field on the Chapter Information page. Options come from the property definition fetched in step 1, never retyped.",
     "options": [
       "dropdown of fame_chapter_name values",
       "hidden field set per chapter link",
       "copy the approach used by the 3 existing forms that use fame_chapter_name"
     ]
+  },
+  "layout": {
+    "method": "one page per step",
+    "decidedBy": "Jess, 2026-10-27",
+    "detail": "Each entry in steps is its own page, matching the sections in docs/Chapter_Readiness_Assessment_Details.pdf. If the Forms API can't build multi-step forms, use a rich text heading per step and Jess splits the pages in the editor."
   },
   "introduction": "The Chapter Readiness Assessment helps chapter leadership evaluate the conditions that will support successful employer expansion. Complete the assessment before beginning a concentrated employer recruitment effort.\n\nThe assessment examines six areas that directly influence a chapter's ability to grow: Employer Engagement, Leadership & Governance, College Capacity, Student Pipeline, Employer Recruitment Infrastructure, and Resources & Ownership.\n\nRecommended approach: Bring the group together and submit one assessment representing the chapter's collective response. Recommended participants: chapter president and/or officers, college leadership or FAME program representative, FAME instructor, FAME coordinator/Student Success Coach, Hub organization representative (if applicable), and representatives from active sponsoring employers. Estimated time: 45–60 minutes.",
   "ratingScaleHelpText": "Fully in Place: The chapter has an established practice, resource, or capacity in this area. It is functioning consistently and can support expansion.\nPartially in Place: Some elements exist, but improvement, clarification, or additional capacity is needed to support expansion.\nNeeds Development: A meaningful gap exists that should be addressed as part of the chapter's expansion strategy.\nUnsure / Needs Discussion: The group does not currently have enough information or agreement to assess this item.",
@@ -24,11 +31,10 @@
       "fields": [
         {
           "object": "fame_chapter",
-          "property": "__CHAPTER_MATCH__",
+          "property": "fame_chapter_name",
           "label": "Chapter Name",
-          "fieldType": "TBD",
-          "required": true,
-          "helpText": "See chapterMatching in this spec."
+          "fieldType": "dropdown",
+          "required": true
         },
         {
           "object": "contact",
